@@ -1,8 +1,8 @@
 public class DescentEvent {
-    int Seconds = 0;
-    int Velocity = 0;
+    int Seconds = 0; //time
+    int Velocity = 0; //speed
     int Fuel = 0;
-    int Altitude = 0;
+    int Altitude = 0; //height
     int Status = 0;
 
     public DescentEvent(int t, int sp, int f, int h, int st) {
