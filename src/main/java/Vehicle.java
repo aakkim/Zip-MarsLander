@@ -85,6 +85,23 @@ public class Vehicle {
         // create a return a new DescentEvent object
         // filled in with the state of the vehicle. DEAD, CRASHED, EMPTYFUEL, SUCCESS, FLYING
         int status = 0;
+        if (this.Altitude <= 0) {
+            if (this.Velocity > 10) {
+                status = DEAD;
+            }
+            if (this.Velocity < 10 && this.Velocity > 3) {
+                status = CRASHED;
+            }
+            if (this.Velocity < 3) {
+                status = SUCCESS;
+            }
+        } else {
+            if (outOfFuel()) {
+                status = EMPTYFUEL;
+            } else if(stillFlying()){
+                status = FLYING;
+            }
+        }
         return new DescentEvent(tick, Velocity, Fuel, Altitude, status);
     }
 
